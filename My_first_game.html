@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <script>
+    $(document).ready(function(){
+      var i = 0;
+      var a = 0;
+      var time_my = 1000
+
+      function print_money(){
+        if(time_my<=500){
+         setTimeout(print_money,100)
+        time_my = 500
+        }else {
+        time_my = time_my-5
+        }
+      i = i+1;
+
+      var number_of_money= $("<div>",{
+        "style":"position:absolute;top:10px;left:25px"
+      }).html(a*500+" рублей   "+ Math.ceil((1000/time_my)*100)/100+" рублей/секунда")
+      var gameDiv = $("<div>",{
+        "id":"money_"+i,
+        "style":"position:absolute;top: "+getRandom(20,500)+"px;left: " + getRandom(0,1200)+"px;"
+      }).html("<p><img width = 150 src='http://www.solovki.ca/vsiako-razno/images/500.jpg'></p>").click(function(){
+         $(this).remove()
+         a=a+1
+       })
+       $("body").append(gameDiv)
+        $("#money").html(number_of_money)
+console.log(time_my)
+console.log(i)
+setTimeout(print_money,time_my)
+     }
+print_money()
+function getRandom(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}})
+    </script>
+
+
+</head>
+  <body>
+<div id="money">
+
+</div>
+  </body>
+</html>
