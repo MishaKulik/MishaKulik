@@ -7,6 +7,7 @@
     var time_my = 1000
     var i = 0;
     var timer = 1000;
+    var id;
     function timeout_picture(){
       if (time_my>=300){
         time_my=time_my-((clicksCount+1)/5)
@@ -16,15 +17,26 @@
         return time_my
       }
      }
+
+
+function getID(){
+id = getRandom(0,15)
+return id
+}
+
     function print_money(){
-      i = i+1;
+
       var number_of_money= $("<div>",{
         "style":"position:absolute;top:10px;left:25px"
       }).html(clicksCount*500+" рублей   "+ Math.ceil(1000/time_my*100)/100+" рублей/секунда")
       var gameDiv = $("<div>",{
-        "id":"money_"+i,
+        "id":getID(),
         "style":"position:absolute;top: "+getRandom(20,500)+"px;left: " + getRandom(0,1200)+"px;"
-      }).html("<p><img width = 150 src="+getRandom(0,13)+".jpg></p>").click(function(){
+      }).html("<p><img width = 150 src="+$(this).attr("id")+".jpg></p>").click(function(){
+          if($(this).attr("id")==14){
+            $(location).attr('href',"gameover.html");
+          }
+        //  alert(kartinka)
          $(this).remove()
          clicksCount=clicksCount+1
         timer= timeout_picture()
