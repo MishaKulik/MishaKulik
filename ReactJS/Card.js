@@ -12,11 +12,8 @@ render(){
   }
 return(
   <div style={card}>
-  <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
   <div>
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css"/>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
 <div class="demo-card-wide mdl-card mdl-shadow--2dp">
   <div class="mdl-card__title"style={img}>
     <h2 class="mdl-card__title-text">Внимание!</h2>
